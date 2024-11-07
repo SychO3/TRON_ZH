@@ -87,6 +87,11 @@ theme:
     # - toc.integrate
     - navigation.top
     - navigation.footer
+    - navigation.instant.preview
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+
 
 
 
@@ -95,6 +100,7 @@ markdown_extensions:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
+      auto_title: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - admonition
@@ -105,6 +111,12 @@ markdown_extensions:
   - def_list
   - pymdownx.tasklist:
       custom_checkbox: true
+  #- abbr
+  #- footnotes
+  - tables
+  - pymdownx.details
+  - pymdownx.tabbed:
+        alternate_style: true
 
 
 extra:
