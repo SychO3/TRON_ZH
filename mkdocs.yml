@@ -1,0 +1,114 @@
+site_name: TRON 中文文档
+site_url: http://127.0.0.1:8000/
+nav:
+  - 首页: index.md
+  - 介绍:
+    - "介绍": introduction/index.md
+    - "构建 WEB3 应用": introduction/build-a-web3-app.md
+  - 波场协议:
+    - "账户": tron-protocol/account.md
+    - "资源模型":
+        - "资源模型": tron-protocol/resource-model/index.md
+        - "在波场网络上质押": tron-protocol/resource-model/staking-on-tron-network.md
+    - "超级代表":
+        - "超级代表": tron-protocol/super-representatives/index.md
+        - "成为超级代表": tron-protocol/super-representatives/becoming-a-super-representative.md
+    - "交易": tron-protocol/transaction.md
+    - "区块": tron-protocol/block.md
+    - "波场虚拟机（TVM）":
+        - "波场虚拟机（TVM）": tron-protocol/tvm/index.md
+        - "事件日志": tron-protocol/tvm/event.md
+        - "虚拟机异常处理": tron-protocol/tvm/vm-exception-handling.md
+    - "节点和客户端": tron-protocol/nodes-and-clients.md
+    - "网络": tron-protocol/networks.md
+    - "多重签名":
+        - "多重签名": tron-protocol/multi-signature/index.md
+        - "多重签名示例流程": tron-protocol/multi-signature/multi-signature-example-process-flow.md
+    - "共识": tron-protocol/consensus.md
+  - "通证标准":
+    - "概述": token-standards/index.md
+    - "TRX": token-standards/trx.md
+    - "TRC-10":
+        - "TRC-10": token-standards/trc-10/index.md
+        - "TRC-10 智能合约中的转账": token-standards/trc-10/transfer-in-smart-contracts.md
+    - "TRC-20":
+        - "协议接口": token-standards/trc-20/protocol-interface.md
+        - "合同示例": https://github.com/TRON-Developer-Hub/TRC20-Contract-Template
+        - "发行 TRC-20 令牌教程": token-standards/trc-20/issuing-trc20-tokens-tutorial.md
+        - "TRC-20 合同互动": token-standards/trc-20/trc20-contract-interaction.md
+        - "获取 TRC-20 交易历史记录": token-standards/trc-20/get-trc20-transaction-history.md
+    - "🚧TRC-721": token-standards/trc-721/index.md
+
+
+
+
+theme:
+  name: material
+  language: zh
+  font:
+    text: Roboto
+    code: Roboto Mono
+  palette:
+    - primary: red
+    - accent: red
+
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+  features:
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.expand
+    - navigation.path
+    # - navigation.prune
+    - navigation.indexes
+    # - toc.integrate
+    - navigation.top
+    - navigation.footer
+
+
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - tables
+  - attr_list
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+
+extra:
+  generator: false
+
+
+copyright: Copyright &copy; 2019 - 2024 SychO
