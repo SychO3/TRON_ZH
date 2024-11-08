@@ -1,0 +1,2576 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="http://127.0.0.1:8000/tron-protocol/super-representatives/">
+      
+      
+        <link rel="prev" href="../resource-model/staking-on-tron-network/">
+      
+      
+        <link rel="next" href="becoming-a-super-representative/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>超级代表 - TRON 中文文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="TRON 中文文档" class="md-header__button md-logo" aria-label="TRON 中文文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TRON 中文文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              超级代表
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="red"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_3">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_4" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_4">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="TRON 中文文档" class="md-nav__button md-logo" aria-label="TRON 中文文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    TRON 中文文档
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../introduction/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    介绍
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            介绍
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/build-a-web3-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    构建 WEB3 应用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    波场协议
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            波场协议
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../account/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    账户
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../resource-model/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    资源模型
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            资源模型
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resource-model/staking-on-tron-network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    在波场网络上质押
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
+  
+  <span class="md-ellipsis">
+    超级代表
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            超级代表
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="becoming-a-super-representative/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    成为超级代表
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transaction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    交易
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../block/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    区块
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../tvm/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    波场虚拟机（TVM）
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            波场虚拟机（TVM）
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tvm/event/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    事件日志
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tvm/vm-exception-handling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    虚拟机异常处理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nodes-and-clients/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    节点和客户端
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    网络
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_9" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../multi-signature/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    多重签名
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_9" id="__nav_3_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_9">
+            <span class="md-nav__icon md-icon"></span>
+            多重签名
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multi-signature/multi-signature-example-process-flow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    多重签名示例流程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../consensus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    共识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../token-standards/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    通证标准
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            通证标准
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../token-standards/trx/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TRX
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../token-standards/trc-10/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    🚧TRC-10
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            🚧TRC-10
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../token-standards/trc-10/transfer-in-smart-contracts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TRC-10 智能合约中的转账
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    TRC-20
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            TRC-20
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../token-standards/trc-20/protocol-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    协议接口
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/TRON-Developer-Hub/TRC20-Contract-Template" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    合约示例
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../token-standards/trc-20/issuing-trc20-tokens-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    🚧发行 TRC-20 通证教程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../token-standards/trc-20/trc20-contract-interaction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TRC-20 合约交互
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../token-standards/trc-20/get-trc20-transaction-history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    获取 TRC-20 交易历史记录
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../token-standards/trc-721/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    🚧TRC-721
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../smart-contracts/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    智能合约
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            智能合约
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../smart-contracts/programming-language/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    编程语言
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            编程语言
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smart-contracts/programming-language/stake-20-solidity-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stake 2.0 Solidity API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smart-contracts/deployment-and-invocation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    部署与调用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smart-contracts/parameter-encoding-and-decoding/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    参数编码与解码
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smart-contracts/set-feelimit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    设置费用限制
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smart-contracts/security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    安全
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_7" id="__nav_5_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    波场隐私智能合约
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_7">
+            <span class="md-nav__icon md-icon"></span>
+            波场隐私智能合约
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smart-contracts/tronz-shielded-smart-contract/implementation-details/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实施细节
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smart-contracts/tronz-shielded-smart-contract/how-to-use-shielded-smart-contracts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何使用隐私智能合约
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    构建节点
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            构建节点
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-node/deploy-the-fullnode-or-supernode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    部署节点
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-node/main-net-database-snapshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    主网数据库快照
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-node/tron-private-chain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    波场私链
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../build-node/event-subscription/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    事件订阅
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            事件订阅
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-node/event-subscription/event-plugin-deployment-mongodb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    事件插件部署（MongoDB）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-node/event-subscription/event-plugin-deployment-kafka/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    事件插件部署（Kafka）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-node/event-subscription/use-java-trons-built-in-message-queue-for-event-subscription/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    内置消息队列订阅（ZeroMQ）
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      投票权
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      奖励
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="奖励">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      超级代表经纪
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      区块奖励计算
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      投票奖励计算
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      奖励计算示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      委员会及提案
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="委员会及提案">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      波场网络参数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      API
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">超级代表</h1>
+<hr />
+<p>波场网络中的区块生产者，也称为超级代表，通过投票选举产生。
+任何账户都可以通过支付 <code>9999TRX</code> 申请成为超级代表候选人，然后参与超级代表选举。
+任何账户均可投票选出超级代表候选人，得票最多的前27名候选人成为超级代表。
+超级代表需要运行波场节点来参与区块生产，并且还将获得区块奖励和投票奖励。
+投票给超级代表的选民将获得投票奖励。</p>
+<p>排名第 <code>28</code> 位至第 <code>127</code> 位的超级代表候选人也被称为超级代表合伙人。
+超级代表合伙人不参与区块生产和打包交易，但会获得投票奖励。
+投票给超级代表合伙人的选民还将获得投票奖励。</p>
+<h2 id="_2">投票权</h2>
+<p>在投票选举超级代表之前，任何账户都需要获得投票权，即 <code>波场权力</code>（TP）。
+投票权可通过质押 TRX 获得。除了获得带宽或能量外，质押 TRX 还可同时获得投票权。
+质押 1TRX 的选民将获得 1TP。</p>
+<p>账户质押的 TRX 解押后将损失相应数量的 TP，正在进行的投票也将失效。
+每 6 小时计票一次，每 6 小时更换一次超级代表和超级代表合伙人。
+如果一个账户在计票前已投票多次，波场网络仅记录该账户的最新投票，之前的投票将被覆盖。</p>
+<h2 id="_3">奖励</h2>
+<p>TRON 网络中每个区块的生产都会向超级代表和超级代表合作伙伴奖励一定数量的 TRX。
+奖励分为以下两部分：</p>
+<ul>
+<li>区块奖励：随着每个区块的产生，波场网络将奖励 16TRX 给出块的超级代表，超级代表也会根据选民的投票比例扣除佣金比例后将剩余部分分配给选民。</li>
+<li>投票奖励：随着每个区块的产生，波场网络将奖励 160TRX 给超级代表和超级代表合伙人，超级代表合伙人将按照投票比例瓜分 160TRX。超级代表和超级代表合伙人获得的投票奖励，扣除各自的佣金后，也将按照投票比例分配给选民。</li>
+</ul>
+<h3 id="_4">超级代表经纪</h3>
+<p>经纪比例是从超级代表和超级代表合伙人的奖励中扣除的比例。
+违约比例为 20%，即选民投票产生的全部奖励，其中 20% 支付给超级代表或超级代表合伙人作为佣金补偿。
+超级代表和超级代表合伙人可以通过 <code>wallet/getBrokerage</code> 接口查询经纪比例，
+也可以通过 <code>wallet/updateBrokerage</code> 接口修改经纪比例。</p>
+<h3 id="_5">区块奖励计算</h3>
+<p>超级代表每生成一个区块可获得 16 TRX。
+TRON 网络每 3 秒钟产生一个区块，因此一天总共产生 460 800 TRX。
+27 名超级代表轮流生产区块。
+假设超级代表的经纪比例为 20%，则超级代表每天可获得的区块奖励为 3,413 TRX。
+计算公式如下：</p>
+<div class="admonition note">
+<p>奖励 = 460,800 / 27 * 20%  </p>
+</div>
+<p>超级代表选民一天的奖励是：</p>
+<div class="admonition note">
+<p>奖励 = 460 800 / 27 * 80% *（选票/该 SR 获得的选票）</p>
+</div>
+<h3 id="_6">投票奖励计算</h3>
+<p>TRON 每生产一个区块将产生 160 TRX 的投票奖励，一天共计 4,608,000 TRX。
+假设超级代表的经纪费率为 20%，则超级代表（SR）或超级代表合伙人（SRP）一天获得的投票奖励为：</p>
+<div class="admonition note">
+<p>奖励 = 4 608 000 * SR 或 SRP 获得的票数/所有 SR 和 SRP 的总票数 * 20%</p>
+</div>
+<p>超级代表及超级代表合伙人选民一日投票奖励为：</p>
+<div class="admonition note">
+<p>奖励 = 4,608,000 * SR或SRP获得的票数 / 所有SR和SRP的总票数 * 80% *（票数/SR或SRP获得的票数） = 4,608,000 * 票数 / 所有SR和SRP的总票数 * 80%</p>
+</div>
+<h3 id="_7">奖励计算示例</h3>
+<p>下面以超级代表和超级代表伙伴为例，说明用户在一天内可以获得的大致奖励。
+假设投票者的投票数为 10,000,000 票，那么在撰写本文时，
+前 127 名候选人的总票数为 41,549,848,155 票。</p>
+<p><strong>超级代表投票奖励计算示例</strong></p>
+<p>获得的超级代表如下 3,360,351,255 票，经纪比率为 20%。
+<img alt="super-representatives-1" src="super-representatives-1.png" /></p>
+<p>那么，超级代表及其选民可以获得的奖励为：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>区块奖励</th>
+<th>投票奖励</th>
+<th>总奖励</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>超级代表</td>
+<td>460,800 / 27 * 10% = 1,706 TRX</td>
+<td>4,608,000 * 3,360,351,255 / 41,549,848,155 * 20% = 74,534 TRX</td>
+<td>76,240 TRX</td>
+</tr>
+<tr>
+<td>选民</td>
+<td>460,800 / 27 * 90% * 10,000,000/3,360,351,255 = 45 TRX</td>
+<td>4,608,000 * 10,000,000 / 41,549,848,155 * 80% = 887 TRX</td>
+<td>932 TRX</td>
+</tr>
+</tbody>
+</table>
+<p><strong>超级代表合伙人投票奖励计算示例</strong></p>
+<p>以下超级代表合伙人获得票数：137,519,123 票，经纪比例为 20%。
+<img alt="super-representatives-2" src="super-representatives-2.png" /></p>
+<p>那么，超级代表合伙人及其选民可以获得的奖励为：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>区块奖励</th>
+<th>投票奖励</th>
+<th>总奖励</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>超级代表</td>
+<td>0 TRX</td>
+<td>4,608,000 * 137,519,123 / 41,549,848,155 * 20% = 3,050 TRX</td>
+<td>3,050 TRX</td>
+</tr>
+<tr>
+<td>选民</td>
+<td>0 TRX</td>
+<td>4,608,000 * 10,000,000 / 41,549,848,155 * 80% = 887 TRX</td>
+<td>887 TRX</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_8">委员会及提案</h2>
+<p>TRON 委员会由目前的 27 名超级代表组成，负责维护和修改波场网络的动态参数，
+如区块奖励、交易费用等。
+每个超级代表、超级代表合伙人和超级代表候选人都有权发起修改波场网络参数的提案，
+但只有超级代表拥有投票权。</p>
+<p>提案只支持投赞成票，超级代表不投票表示不同意提案。
+提案自创建之日起三天内有效。
+在提案有效期内，超级代表可以对提案进行投票，也可以取消之前的投票。
+如果提案在有效期内获得 18 票或更多超级代表投票，提案将获得通过。
+如果提案过了有效期，但没有获得足够的票数，提案将失效。</p>
+<h3 id="_9">波场网络参数</h3>
+<p>波场网络可以通过提案修改的动态参数如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">序号</th>
+<th style="text-align: left;">参数</th>
+<th style="text-align: left;">当前值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"># 0</td>
+<td style="text-align: left;">建议修改 SR 的维护间隔</td>
+<td style="text-align: left;">6 Hour</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 1</td>
+<td style="text-align: left;">建议修改 SR 账户的申请费用</td>
+<td style="text-align: left;">9999 TRX</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 2</td>
+<td style="text-align: left;">建议修改账户创建费</td>
+<td style="text-align: left;">0.1 TRX</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 3</td>
+<td style="text-align: left;">建议修改 1 单位带宽的收费标准</td>
+<td style="text-align: left;">0.001 TRX</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 4</td>
+<td style="text-align: left;">建议修改资产发行费</td>
+<td style="text-align: left;">1024 TRX</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 5</td>
+<td style="text-align: left;">建议修改 SR 区块生成奖励</td>
+<td style="text-align: left;">16 TRX</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 6</td>
+<td style="text-align: left;">建议修改前 27 名员工代表和以下 100 名合作伙伴的奖励办法</td>
+<td style="text-align: left;">115200 TRX</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 7</td>
+<td style="text-align: left;">建议修改系统合同中的账户创建成本</td>
+<td style="text-align: left;">1 TRX</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 9</td>
+<td style="text-align: left;">建议激活虚拟机（VM）</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 10</td>
+<td style="text-align: left;">Propose to remove the GR Genesis votes</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 11</td>
+<td style="text-align: left;">Propose to modify the fee of 1 unit of Energy</td>
+<td style="text-align: left;">0.00021 TRX</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 12</td>
+<td style="text-align: left;">Propose to modify the cost of trading pair creation</td>
+<td style="text-align: left;">1024 TRX</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 13</td>
+<td style="text-align: left;">Propose to modify the maximum execution time of one transaction</td>
+<td style="text-align: left;">80 ms</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 14</td>
+<td style="text-align: left;">Propose to allow duplicate account name</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 15</td>
+<td style="text-align: left;">Propose to allow duplicate token name</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 16</td>
+<td style="text-align: left;">Propose to allow resource delegation</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 18</td>
+<td style="text-align: left;">Propose to allow the TRC-10 token transfer in smart contracts</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 19</td>
+<td style="text-align: left;">Propose to modify the total Energy limit</td>
+<td style="text-align: left;">180000000000 ENERGY</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 20</td>
+<td style="text-align: left;">Propose to allow the initiation of multi-signature</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 21</td>
+<td style="text-align: left;">Propose to allow adaptive adjustment for total Energy</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 22</td>
+<td style="text-align: left;">Propose to modify the fee for updating account permission</td>
+<td style="text-align: left;">100 TRX</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 23</td>
+<td style="text-align: left;">Propose to modify the fee for updating multi-signature</td>
+<td style="text-align: left;">1 TRX</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 24</td>
+<td style="text-align: left;">Propose to enable protocol optimization</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 26</td>
+<td style="text-align: left;">Propose to support Constantinople Upgrade for TVM</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 29</td>
+<td style="text-align: left;">Propose to modify the adaptive Energy limit</td>
+<td style="text-align: left;">1000</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 30</td>
+<td style="text-align: left;">Propose to support the decentralized vote dividend</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 31</td>
+<td style="text-align: left;">Propose to modify the block voting rewards given to the top 27 SRs and the following 100 partner</td>
+<td style="text-align: left;">160 TRX</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 32</td>
+<td style="text-align: left;">Propose to allow TVM to support Solidity 0.5.9</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 33</td>
+<td style="text-align: left;">Propose to modify the adaptive Energy limit target</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 35</td>
+<td style="text-align: left;">Propose to ban transferring TRX and TRC10 tokens to smart contracts via TransferContract or TransferAssetContract</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 39</td>
+<td style="text-align: left;">Propose to enable the function of verifying zero-knowledge proof in TVM</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 40</td>
+<td style="text-align: left;">Propose to enable PBFT consensus</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 41</td>
+<td style="text-align: left;">Propose to enable TVM Istanbul instruction</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 44</td>
+<td style="text-align: left;">Propose to allow enabling DEX</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 45</td>
+<td style="text-align: left;">Propose to modify fees for creating orders on DEX</td>
+<td style="text-align: left;">0 TRX</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 46</td>
+<td style="text-align: left;">Propose to modify fees for canceling orders on DEX</td>
+<td style="text-align: left;">0 TRX</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 47</td>
+<td style="text-align: left;">Proposal to modify the upper limit of the fee of a smart contract</td>
+<td style="text-align: left;">15000 TRX</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 48</td>
+<td style="text-align: left;">Proposal to open reward pool for transaction fee</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 49</td>
+<td style="text-align: left;">Proposal to optimize black hole accounts</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 51</td>
+<td style="text-align: left;">Propose to enable the new resource model</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 52</td>
+<td style="text-align: left;">Propose to enable the function to stake/unstake balance in virtual machine contracts</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 53</td>
+<td style="text-align: left;">Propose to enable the optimization of account assets</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 59</td>
+<td style="text-align: left;">Propose to enable TVM contract voting</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 60</td>
+<td style="text-align: left;">Propose to initiate EVM-compatible mode for TVM</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 61</td>
+<td style="text-align: left;">Propose to modify the upper limit of free Bandwidth for each account</td>
+<td style="text-align: left;">600 Bandwidth</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 62</td>
+<td style="text-align: left;">Propose to modify the upper limit of total Bandwidth frozen</td>
+<td style="text-align: left;">43200000000 Bandwidth</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 63</td>
+<td style="text-align: left;">Propose to support London Upgrade for TVM</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 65</td>
+<td style="text-align: left;">Propose to allow raising the maximum of MaxCpuTimeOfOneTx net parameters to 400</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 66</td>
+<td style="text-align: left;">Propose to enable account asset optimization</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 67</td>
+<td style="text-align: left;">Propose to open a new reward algorithm</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 68</td>
+<td style="text-align: left;">Propose to modify the memo charges</td>
+<td style="text-align: left;">1 TRX</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 69</td>
+<td style="text-align: left;">Propose to open the proxy storage optimization</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 70</td>
+<td style="text-align: left;">Propose to enable the new staking mechanism that allows specifying the lock-up days of staked assets</td>
+<td style="text-align: left;">14</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 71</td>
+<td style="text-align: left;">Propose to allow optimizing the return value of the chainid command</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 72</td>
+<td style="text-align: left;">Propose to allow enabling the dynamic energy model</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 73</td>
+<td style="text-align: left;">Propose to modify the threshold of the dynamic energy model</td>
+<td style="text-align: left;">5000000000</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 74</td>
+<td style="text-align: left;">Propose to modify the increase factor (in basis points) of the dynamic energy model</td>
+<td style="text-align: left;">2000</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 75</td>
+<td style="text-align: left;">Propose to modify the maximum increase factor (in basis points) of the dynamic energy model</td>
+<td style="text-align: left;">34000</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 76</td>
+<td style="text-align: left;">Propose to allow TVM to support Shanghai upgrade</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 77</td>
+<td style="text-align: left;">Propose to allow cancellation of all unstakings</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 78</td>
+<td style="text-align: left;">Propose to allow optimization of delegating resource lock and set the maximum lock period (number of blocks)</td>
+<td style="text-align: left;">864000</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 79</td>
+<td style="text-align: left;">Propose to allow the optimization of the reward withdrawal algorithm for Phase 1</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 81</td>
+<td style="text-align: left;">Propose to allow the adjustment on Energy consumption of TVM instructions</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;"># 82</td>
+<td style="text-align: left;">Propose to allow setting an upper limit (in bytes) for the size of account creation transactions</td>
+<td style="text-align: left;">1000</td>
+</tr>
+</tbody>
+</table>
+<h2 id="api">API</h2>
+<p>超级代表、提案、投票相关的API如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">API</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Apply to be a Super Representative Candidate</td>
+<td style="text-align: left;"><a href="https://developers.tron.network/reference/createwitness">wallet/createwitness</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">Edit the URL of the witness's official website</td>
+<td style="text-align: left;"><a href="https://developers.tron.network/reference/updatewitness">wallet/updatewitness</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">List all Super Representatives</td>
+<td style="text-align: left;"><a href="https://developers.tron.network/reference/listwitnesses">wallet/listwitnesses</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">Vote for witnesses</td>
+<td style="text-align: left;"><a href="https://developers.tron.network/reference/votewitnessaccount">wallet/votewitnessaccount</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">Get SR brokerage ratio</td>
+<td style="text-align: left;"><a href="https://developers.tron.network/reference/wallet-getbrokerage">wallet/getBrokerage</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">Update the witness's brokerage ratio</td>
+<td style="text-align: left;"><a href="https://developers.tron.network/reference/wallet-updatebrokerage">wallet/updateBrokerage</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">Get the rewards that a witness or a user has not yet withdrawn</td>
+<td style="text-align: left;"><a href="https://developers.tron.network/reference/wallet-getreward">wallet/getReward</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">Withdraw rewards</td>
+<td style="text-align: left;"><a href="https://developers.tron.network/reference/withdrawbalance">wallet/withdrawbalance</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">Get next voting time</td>
+<td style="text-align: left;"><a href="https://developers.tron.network/reference/getnextmaintenancetime">wallet/getnextmaintenancetime</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">Create proposal</td>
+<td style="text-align: left;"><a href="https://developers.tron.network/reference/proposalcreate">wallet/proposalcreate</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">Approve proposal</td>
+<td style="text-align: left;"><a href="https://developers.tron.network/reference/proposalapprove">wallet/proposalapprove</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">Delete proposal</td>
+<td style="text-align: left;"><a href="https://developers.tron.network/reference/proposaldelete">wallet/proposaldelete</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">List all proposals</td>
+<td style="text-align: left;"><a href="https://developers.tron.network/reference/wallet-listproposals">wallet/listproposals</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">Queries proposal based on ID</td>
+<td style="text-align: left;"><a href="https://developers.tron.network/reference/getproposalbyid">wallet/getproposalbyid</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../resource-model/staking-on-tron-network/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 在波场网络上质押">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                在波场网络上质押
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="becoming-a-super-representative/" class="md-footer__link md-footer__link--next" aria-label="下一页: 成为超级代表">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                成为超级代表
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2019 - 2024 SychO
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate", "navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.tracking", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.instant.preview", "search.suggest", "search.highlight", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
