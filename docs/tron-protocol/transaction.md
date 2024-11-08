@@ -1,16 +1,14 @@
-# 交易
+# 交易  
 ***
-交易是账户发出的经过加密签名的指令。账户将发起交易以更新波场网络的状态。
-最简单的交易是从一个账户向另一个账户转移 TRX。
+交易是由账户加密签名的指令。账户将发起交易以更新波场网络的状态。最简单的交易是从一个账户向另一个账户转移 TRX。
 
-改变链状态的交易需要向整个网络广播。任何节点都可以广播交易请求。
-超级节点收到事务后，会执行事务并将其包含在一个区块中，然后将该区块传播到整个网络。
+更改链状态的交易需要广播至整个网络。任何节点都可以广播一个交易请求。当超级节点收到交易后，会执行该交易并将其包含在区块中，然后将区块传播到整个网络。
 
-只有在超级节点将交易打包成一个区块，并对该区块进行确认后，交易才能最终得到确认。
+只有当交易被超级节点打包进区块并且该区块被确认后，该交易才最终被确认。
 
-交易格式如下：
+交易的格式如下：
 
-```javascript
+```json
 {
     "raw_data": 
     {
@@ -20,32 +18,32 @@
         "expiration": 1646796363000,
         "data": "74657374",
         "timestamp": 1646796304152,
-        "fee_limit":10000000000
+        "fee_limit": 10000000000
     },
-    "signature":["47b1f77b3e30cfbbfa41d795dd34475865240617dd1c5a7bad526f5fd89e52cd057c80b665cc2431efab53520e2b1b92a0425033baee915df858ca1c588b0a1800" ] 
+    "signature": ["47b1f77b3e30cfbbfa41d795dd34475865240617dd1c5a7bad526f5fd89e52cd057c80b665cc2431efab53520e2b1b92a0425033baee915df858ca1c588b0a1800"]
 }
 ```
 
 提交的交易主要包括以下字段：
 
-- `raw_data.contract` - 交易的主要内容，contract 是一个列表，但目前只使用一个元素。不同类型的交易有不同的合约内容。例如，对于 TRX 转帐类型的交易，合约将包括转帐金额、接收地址和其他信息。波场支持多种类型的合约，详情请参阅下面的 交易类型 部分。
-- `raw_data.ref_block_bytes` - 交易块的高度，使用参考块高度的第 6 到第 8 个（独占）字节，共 2 个字节。参考区块用于 `TRON TAPOS 机制`，可以防止在不包含参考区块的分叉上重放事务。一般情况下，最新固化的区块被用作参考区块。
-- `raw_data.ref_block_hash` - 交易块的哈希值，使用参考区块哈希值的第 8 至第 16 个（独占）字节，共 8 个字节。参考区块用于 `TRON TAPOS 机制`，可防止在不包含参考区块的分叉上重放事务。一般情况下，最新固化的区块被用作参考区块。
-- `raw_data.expiration` - 交易过期时间，过期后交易将不再打包。如果交易是通过调用 java-tron API 创建的，节点会自动将其过期时间设置为在节点最新区块的时间戳上加上 60 秒。过期时间间隔可在节点配置文件中修改，最大值不能超过 24 小时。
-- `raw_data.data` - 交易备忘录。
+- `raw_data.contract` - 交易的主要内容。contract 是一个列表，目前仅使用一个元素。不同类型的交易具有不同的合约内容。例如，对于 TRX 转账类型的交易，合约将包括转账数量、接收地址和其他信息。波场支持多种类型的合约，详情请参阅下文的“交易类型”部分。
+- `raw_data.ref_block_bytes` - 交易参考区块的高度，使用参考区块高度的第 6 到第 8 字节（不包括第 8 字节），共 2 字节。参考区块用于波场的 TAPOS 机制，可以防止在不包含参考区块的分叉上重放某笔交易。通常使用最新的已固化区块作为参考区块。
+- `raw_data.ref_block_hash` - 交易参考区块的哈希，使用参考区块哈希的第 8 到第 16 字节（不包括第 16 字节），共 8 字节。参考区块用于波场的 TAPOS 机制，可以防止在不包含参考区块的分叉上重放某笔交易。通常使用最新的已固化区块作为参考区块。
+- `raw_data.expiration` - 交易过期时间，超过此时间交易将不再被打包。如果通过调用 java-tron API 创建交易，节点会自动将其过期时间设置为节点最新区块的时间戳加 60 秒。过期时间间隔可以在节点的配置文件中修改，最大值不能超过24小时。
+- `raw_data.data` - 交易备注。
 - `raw_data.timestamp` - 交易时间戳，设置为交易创建时间。
-- `raw_data.fee_limit` - 执行智能合约交易时允许的最大能源成本。只有部署和触发智能合约交易需要设置，其他交易不需要。
-- `signature` - 交易发送者的签名。这证明该交易只能来自发送者，而不是欺诈发送的。
+- `raw_data.fee_limit` - 执行智能合约交易允许的最大能量消耗。仅部署和触发智能合约交易需要设置，其他交易无需设置。
+- `signature` - 交易发送者的签名。此签名证明交易只能来自发送者，而非欺诈性发送。
 
-## 交易类型
-波场上有很多不同类型的交易，例如 TRX 转账交易、TRC10 转账交易、部署智能合约交易、触发智能合约交易、质押 TRX 交易等等。
+## 交易类型  
 
-要创建不同类型的交易，需要调用不同的 API。
-例如，智能合约部署交易类型为 `CreateSmartContract`，需要调用钱包 `/deploycontract` API 来创建交易，
-而质押 TRX 交易类型为 `FreezeBalanceV2Contract`，需要调用钱包 `/freezebalancev2` API 来创建交易。
+在波场网络上，有多种不同类型的交易，比如 TRX 转账交易、TRC10 转账交易、部署智能合约交易、触发智能合约交易、质押 TRX 交易等等。
 
-```javascript
-$ curl -X POST https://api.shasta.trongrid.io/wallet/freezebalancev2 -d '{"owner_address":"TCrkRWJuHP4VgQF3xwLNBAjVVXvxRRGpbA","frozen_balance": 2100000,"resource" : "BANDWIDTH","visible":true}' | jq
+要创建不同类型的交易，需要调用不同的 API。例如，智能合约部署交易的类型是 CreateSmartContract，需要调用 `wallet/deploycontract` API 创建交易；质押 TRX 交易的类型是 FreezeBalanceV2Contract，需要调用 `wallet/freezebalancev2` API 创建交易。
+
+
+```shell
+$ curl -X POST https://api.shasta.trongrid.io/wallet/freezebalancev2 -d '{"owner_address":"TCrkRWJuHP4VgQF3xwLNBAjVVXvxRRGpbA","frozen_balance":2100000,"resource":"BANDWIDTH","visible":true}' | jq
 {
   "visible": true,
   "txID": "e54bab34838a59e85d5684e46a2e8e512cd11dfb07b35a9728adeaf3d2666fa6",
@@ -71,22 +69,22 @@ $ curl -X POST https://api.shasta.trongrid.io/wallet/freezebalancev2 -d '{"owner
 }
 ```
 
-更多交易类型请参阅：[波场上的交易类型](https://github.com/tronprotocol/java-tron/blob/develop/protocol/src/main/protos/core/Tron.proto#L339)，更多 HTTP API 请参阅：`HTTP API`
+有关更多交易类型，请参阅：[波场上的交易类型](https://github.com/tronprotocol/java-tron/blob/develop/protocol/src/main/protos/core/Tron.proto#L339)。有关更多 HTTP API，请参阅：HTTP API。
 
-## 交易生命周期
-交易在其生命周期中会经历以下阶段：
+## 交易生命周期  
+一笔交易在其生命周期中经历以下阶段：
 
-- 交易的创建和签名。
-- 交易被广播到波场网络，通过节点（包括区块产生节点）的验证和执行后，将被纳入交易缓存池。
-- 出块节点按照放入的顺序从交易缓存池中一笔一笔取出交易，打包成新的区块，然后将新的区块广播到波场网络。
-- 交易将被 "`confirmed`"。交易是否被确认取决于交易所在的区块是否被确认。波场的区块确认机制是，一个区块产生后，19 个不同的超级节点根据该区块产生后续区块，然后该区块被确认。
+1. 交易的创建和签名。  
+2. 交易广播到波场网络，经过节点（包括出块节点）的验证和执行后，将被包含在交易缓存池中。  
+3. 出块节点从交易缓存池中按放入顺序逐个取出交易，将其打包成新块，然后将新块广播到波场网络。  
+4. 交易会被“确认”。交易是否被确认取决于包含该交易的区块是否被确认。波场的区块确认机制是，在一个区块被生产后，19个不同的超级节点基于该区块生产后续区块，然后该区块被确认。  
 
-### 创建交易
-有多种库和工具可用于创建交易。下面以 tronweb 创建 TRX 转账交易为例，说明如何创建交易：
+### 创建交易  
+有多种库和工具可用于创建交易。以下以 tronweb 创建 TRX 转账交易为例说明如何创建交易：
 
 ```javascript
 const unsignedTxn = await tronWeb.transactionBuilder.sendTrx("TVDGpn4hCSzJ5nkHPLetk8KQBtwaTppnkr", 100, "TNPeeaaFB7K9cmo4uQpcU32zGK8G1NYqeL");
- >{
+>{
     "visible": false,
     "txID": "9f62a65d0616c749643c4e2620b7877efd0f04dd5b2b4cd14004570d39858d7e",
     "raw_data": {
@@ -112,26 +110,26 @@ const unsignedTxn = await tronWeb.transactionBuilder.sendTrx("TVDGpn4hCSzJ5nkHPL
 }
 ```
 
-### 签名交易
-交易在发送之前需要使用发送者的私钥进行签名。
+### 签名交易  
+在发送交易前，需要使用发送方的私钥对交易进行签名。
 
-**交易签名生成流程**
+**交易签名生成过程**
 
-1. 计算交易的哈希值。
-2. 使用发送者的私钥对交易哈希进行签名。
-3. 将生成的签名添加到交易实例中。
+1. 计算交易的哈希值。  
+2. 使用发送方的私钥对交易哈希进行签名。  
+3. 将生成的签名添加到交易实例中。  
 
-大多数 SDK 都实现了上述交易签名生成过程，并将其封装成一个接口供开发人员调用。以 tronweb 为例，用户可以直接调用 sign 方法来完成交易签名。
+大多数 SDK 实现了上述交易签名生成过程，并封装为接口供开发者调用。以 tronweb 为例，用户可以直接调用 sign 方法完成交易签名。
 
-**使用 Tronweb 签名的示例**
+**使用 tronweb 进行签名的示例**  
 
-使用 tronweb 对上面创建的交易进行签名：
-    
+使用 tronweb 对上述创建的交易进行签名：
+
 ```javascript
 const signedTxn = await tronWeb.trx.sign(unsignedTxn, privateKey);
 >{
     "visible": false,
-    "txID":"9f62a65d0616c749643c4e2620b7877efd0f04dd5b2b4cd14004570d39858d7e",
+    "txID": "9f62a65d0616c749643c4e2620b7877efd0f04dd5b2b4cd14004570d39858d7e",
     "raw_data":
     {
         "contract": [{<-->}],
@@ -142,11 +140,11 @@ const signedTxn = await tronWeb.trx.sign(unsignedTxn, privateKey);
     },
     "raw_data_hex": "0a020add22086c2763abadf9ed2940c8d5deea822e5a65080112610a2d747970652e676f6f676c65617069732e636f6d2f70726f746f636f6c2e5472616e73666572436f6e747261637412300a15418840e6c55b9ada326d211d818c34a994aeced808121541d3136787e667d1e055d2cd5db4b5f6c880563049186470ac89dbea822e",
     "signature": [ "47b1f77b3e30cfbbfa41d795dd34475865240617dd1c5a7bad526f5fd89e52cd057c80b665cc2431efab53520e2b1b92a0425033baee915df858ca1c588b0a1800" ] 
- }
+}
 ```
 
-### 广播交易
-节点收到用户发送的交易后，会在本地尝试验证并执行该交易，并向其他节点广播有效交易，丢弃无效交易，这将有效防止无效交易在网络中广播。
+### 广播交易  
+节点接收到用户发送的交易后，将尝试在本地验证和执行交易，并将有效交易广播到其他节点，丢弃无效交易，以有效防止垃圾交易在网络中的无效广播。
 
 使用 tronweb 广播已签名的交易：
 
@@ -169,27 +167,34 @@ const receipt = await tronWeb.trx.sendRawTransaction(signedTxn);
         "raw_data_hex": "0a020add22086c2763abadf9ed2940c8d5deea822e5a65080112610a2d747970652e676f6f676c65617069732e636f6d2f70726f746f636f6c2e5472616e73666572436f6e747261637412300a15418840e6c55b9ada326d211d818c34a994aeced808121541d3136787e667d1e055d2cd5db4b5f6c880563049186470ac89dbea822e",
         "signature": [ "47b1f77b3e30cfbbfa41d795dd34475865240617dd1c5a7bad526f5fd89e52cd057c80b665cc2431efab53520e2b1b92a0425033baee915df858ca1c588b0a1800" ] 
     } 
- }
+}
 ```
 
-### 交易确认
-交易是否得到确认取决于交易所在的区块是否得到确认。
-波场的区块确认机制是，一个区块产生后，19 个不同的超级节点根据该区块产生后续区块，然后该区块被确认。
+### 交易确认  
+交易是否被确认取决于包含该交易的区块是否被确认。波场的区块确认机制是，在一个区块被生产后，19个不同的超级节点基于该区块生产后续区块，然后该区块被确认。
 
-java-tron 节点提供了 `/walletsolidty/*` API，方便用户查询已确认的交易。
-`/walletsolidty/*` 和 `/wallet/*` 的区别在于，用 `/wallet/*` 查询到的交易表示它已经上链，
-但不一定是已确认的。而通过 `/walletsolidty/*` 查询到的交易，则表示该交易已在链上并已固化，也就是说，该交易已被确认。
+java-tron 节点提供 `/walletsolidty/*` API，方便用户查询已确认的交易。
+`/walletsolidty/*` 和 `/wallet/*` 的区别在于，`/wallet/*` 查询的交易表示已经上链但不一定确认，
+`/walletsolidty/*` 查询的交易表示已经上链并且已经固化，即交易已经被确认。
 
-对于不同的交易，有不同的方法来确定是否确认：
+对于不同的交易，有不同的方式来判断其是否被确认：
 
-- **系统合约交易**：除创建智能合约类型和触发智能合约类型之外的所有交易类型均为系统合约交易。系统合约交易确认方法：
-    * 只要能通过 `/walletsolidity/gettransactioninfobyid` 或 `/walletsolidity/gettransactionbyid` API 查询到交易，该交易就已确认。
-- **智能合约交易**：包括创建智能合约和触发智能合约交易。由于需要在 TRON 虚拟机中执行，执行过程中可能会出现一些异常。这些交易虽然在链上，但并不意味着交易已成功执行。判断智能合约交易是否成功执行有两种方法：
-    * 通过调用 `/walletsolidity/gettransactioninfobyid` API 查找 `transactionInfo.receipt.result` 是否等于 `success`。
-    * 通过调用 `/walletsolidity/gettransactionbyid` API 查找 `transaction.ret.contractRet` 是否等于 `success`。
-- **内部交易**：内部交易是指将代币转移到其他外部地址或合约中的合约地址的交易。首先，可以通过 `/walletsolidity/gettransactioninfobyid` API 查询内部交易，内部交易中的拒绝字段用于判断内部交易是否确认，但 HTTP 和 GRPC API 有所不同：
-    * HTTP API：对于成功的交易，默认情况下不返回 rejected 字段。对于失败的交易，rejected 等于 `true`。
-    * GRPC API：对于成功的交易，rejected 等于 `false`，表示当前 `internalTransaction` 未被丢弃；对于失败的交易，rejected 等于 `true`。
+- **系统合约交易**  
+    除了创建智能合约和触发智能合约类型的所有交易都是系统合约交易。系统合约交易确认方法：
+
+    - 只要能通过 `/walletsolidity/gettransactioninfobyid` 或 `/walletsolidity/gettransactionbyid` API 查询到交易，即视为已确认。
+
+- **智能合约交易**  
+    包括创建智能合约和触发智能合约交易。因为它们需要在波场虚拟机中执行，在执行过程中可能会抛出异常。这些交易虽然已经上链，但并不意味着交易成功执行。判断智能合约交易是否成功执行有两种方式：
+
+    - 调用 `/walletsolidity/gettransactioninfobyid` API，查找 `transactionInfo.receipt.result` 等于 `success`。  
+    - 调用 `/walletsolidity/gettransactionbyid` API，查找 `transaction.ret.contractRet` 等于 `success`。  
+
+- **内部交易**  
+    内部交易是指在合约中将通证转移到其他外部地址或合约地址的交易。首先，可以通过 /walletsolidity/gettransactioninfobyid API 查询内部交易，并使用内部交易中的 rejected 字段来判断是否确认，但在 HTTP 和 GRPC API 中有所不同：
+
+    - HTTP API：对于成功的交易，默认不返回 `rejected` 字段；对于失败的交易，`rejected` 等于 `true`。
+    - GRPC API：对于成功的交易，`rejected` 等于 `false`，表示当前 `internalTransaction` 未被丢弃；对于失败的交易，`rejected` 等于 `true`。
 
 
 ## 交易费用
@@ -236,7 +241,7 @@ java-tron 节点提供了 `/walletsolidty/*` API，方便用户查询已确认�
 | AssetIssueContract              | 发行 TRC10 通证                                        | 1024 TRX |
 | AccountCreateContract           | 创建新账户，即激活账户 |  1 TRX   |
 | AccountPermissionUpdateContract | 更新账户权限                         | 100 TRX  |
-| ExchangeCreateContract          | 创建交换对                             | 1024 TRX |
+| ExchangeCreateContract          | 创建交易对                             | 1024 TRX |
 
 !!!note ""
     对于转账合约（`TransferContract`）或转账资产合约（`TransferAssetContract`）类型的交易，即 TRX 转账、TRC10 通证转账，如果目标地址未激活，则该交易还将触发新账户的创建，并扣除 1TRX 的新账户创建费。同时，如果交易发送者账户中通过质押获得的带宽不足，则需要支付 0.1TRX 作为带宽费。
@@ -417,8 +422,8 @@ TRC10 转账与 TRX 转账基本相同，除了以下两个字段：
 - `Internal_transactions.callValueInfo[0].callValue` 是质押的 TRX 数量（以 sun 为单位）
 - `Internal_transactions.note` 是指令说明，采用十六进制格式，将其转换为字符串后，可以获得纯文本操作信息，本例中为 `freezeBalanceV2ForEnergy`，表示合约质押 TRX 来获取能量。如果合约质押 TRX 来获取带宽，则该字段值为 `freezeBalanceV2ForBandwidth`
 
-#### 5. 解押 TRX
-下面是例子，交易是外部地址调用 "`TU8MbhYhurKv4T3xAHQKZCeP4DtFCmWLMt`" 合约，"`TU8MbhYhurKv4T3xAHQKZCeP4DtFCmWLMt`" 合约执行解押操作，将质押的 100TRX 解押以获得带宽：
+#### 5. 解锁 TRX
+下面是例子，交易是外部地址调用 "`TU8MbhYhurKv4T3xAHQKZCeP4DtFCmWLMt`" 合约，"`TU8MbhYhurKv4T3xAHQKZCeP4DtFCmWLMt`" 合约执行解锁操作，解锁了用于获取带宽的 100 TRX：
 
 ```javascript
 {
@@ -440,10 +445,10 @@ TRC10 转账与 TRX 转账基本相同，除了以下两个字段：
 }
 ```
 
-- `Internal_transactions.caller_address` 是解押发起方地址，即外部地址直接调用的合约地址
+- `Internal_transactions.caller_address` 是解锁发起者的地址，即由外部地址直接调用的合约的地址
 - `Internal_transactions.transferTo_address` 是 TRX 接收地址，即外部地址直接调用的合约地址
-- `Internal_transactions.callValueInfo[0].callValue` 是解押的 TRX 数量（以 sun 为单位）
-- `Internal_transactions.note` 是指令描述，在本例中为 `unfreezeBalanceV2ForBandwidth`，这意味着合约解押为获取带宽而质押的 TRX。如果合约解押为获取能量而质押的 TRX，则该字段的值为 `unfreezeBalanceV2ForEnergy`
+- `Internal_transactions.callValueInfo[0].callValue` 是解锁的 TRX 数量（以 sun 为单位）
+- `Internal_transactions.note` 是指令描述，在本例中为 `unfreezeBalanceV2ForBandwidth`，表示合约解锁了用于获取带宽的 TRX。如果合约解锁的是用于获取能量的 TRX，则该字段的值为 `unfreezeBalanceV2ForEnergy`
 
 
 #### 6. 资源代理
@@ -469,14 +474,14 @@ TRC10 转账与 TRX 转账基本相同，除了以下两个字段：
 }
 ```
 
-- `Internal_transactions.caller_address` 是资源委托地址，即外部地址直接调用的合约地址
-- `Internal_transactions.transferTo_address` 是代理地址
-- `Internal_transactions.callValueInfo[0].callValue` 是代理数量（单位为 sun）
+- `Internal_transactions.caller_address` 是资源代理地址，即由外部地址直接调用的合约地址
+- `Internal_transactions.transferTo_address` 是资源接收地址
+- `Internal_transactions.callValueInfo[0].callValue` 是代理的资源份额（单位为 sun）
 - `Internal_transactions.note` 是指令描述，本例中为 `delegateResourceOfEnergy`，表示代理能量。如果是代理带宽，则该字段值为 `delegateResourceOfBandwidth`
 
 
 #### 7. 资源回收
-下面是例子，交易是外部地址调用 "`TU8MbhYhurKv4T3xAHQKZCeP4DtFCmWLMt`" 合约，"`TU8MbhYhurKv4T3xAHQKZCeP4DtFCmWLMt`" 合约取消对 "`TUoHaVjx7n5xz8LwPRDckgFrDWhMhuSuJM`" 地址的 200000000sun 的能量代理：
+下面是例子，交易是外部地址调用 "`TU8MbhYhurKv4T3xAHQKZCeP4DtFCmWLMt`" 合约，"`TU8MbhYhurKv4T3xAHQKZCeP4DtFCmWLMt`" 合约取消对 "`TUoHaVjx7n5xz8LwPRDckgFrDWhMhuSuJM`" 地址代理的 200000000sun 的能量份额：
 
 ```javascript
 {
@@ -498,10 +503,10 @@ TRC10 转账与 TRX 转账基本相同，除了以下两个字段：
 }
 ```
 
-- `Internal_transactions.caller_address` 是资源委托地址，即外部地址直接调用的合约地址
-- `Internal_transactions.transferTo_address` 是回收地址
-- `Internal_transactions.callValueInfo[0].callValue` 是回收的 TRX 数量（单位为 sun）
-- `Internal_transactions.note` 是指令描述，本例为 `unDelegateResourceOfEnergy`，表示回收能量。如果是回收带宽，该字段值 `为unDelegateResourceOfBandwidth`
+- `Internal_transactions.caller_address` 是资源代理地址，即由外部地址直接调用的合约地址
+- `Internal_transactions.transferTo_address` 是资源接收地址，即需要取消资源代理的地址
+- `Internal_transactions.callValueInfo[0].callValue` 是取消代理的 TRX 数量（单位为 sun）
+- `Internal_transactions.note` 是指令描述，本例为 `unDelegateResourceOfEnergy`，表示取消能量资源代理。如果合约取消的是带宽资源代理，该字段值 `为unDelegateResourceOfBandwidth`
 
 
 #### 8. 投票
