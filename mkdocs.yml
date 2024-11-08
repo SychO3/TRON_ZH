@@ -28,16 +28,38 @@ nav:
   - "通证标准":
     - "概述": token-standards/index.md
     - "TRX": token-standards/trx.md
-    - "TRC-10":
+    - "🚧TRC-10":
         - "TRC-10": token-standards/trc-10/index.md
         - "TRC-10 智能合约中的转账": token-standards/trc-10/transfer-in-smart-contracts.md
     - "TRC-20":
         - "协议接口": token-standards/trc-20/protocol-interface.md
-        - "合同示例": https://github.com/TRON-Developer-Hub/TRC20-Contract-Template
-        - "发行 TRC-20 令牌教程": token-standards/trc-20/issuing-trc20-tokens-tutorial.md
-        - "TRC-20 合同互动": token-standards/trc-20/trc20-contract-interaction.md
+        - "合约示例": https://github.com/TRON-Developer-Hub/TRC20-Contract-Template
+        - "🚧发行 TRC-20 通证教程": token-standards/trc-20/issuing-trc20-tokens-tutorial.md
+        - "TRC-20 合约交互": token-standards/trc-20/trc20-contract-interaction.md
         - "获取 TRC-20 交易历史记录": token-standards/trc-20/get-trc20-transaction-history.md
     - "🚧TRC-721": token-standards/trc-721/index.md
+  - "智能合约":
+    - "智能合约": smart-contracts/index.md
+    - "编程语言":
+        - "编程语言": smart-contracts/programming-language/index.md
+        - "Stake 2.0 Solidity API": smart-contracts/programming-language/stake-20-solidity-api.md
+    - "部署与调用": smart-contracts/deployment-and-invocation.md
+    - "参数编码与解码": smart-contracts//parameter-encoding-and-decoding.md
+    - "设置费用限制": smart-contracts/set-feelimit.md
+    - "安全" : smart-contracts/security.md
+    - "波场隐私智能合约":
+        - "实施细节": smart-contracts/tronz-shielded-smart-contract/implementation-details.md
+        - "如何使用隐私智能合约": smart-contracts/tronz-shielded-smart-contract/how-to-use-shielded-smart-contracts.md
+  - "构建节点":
+      - "部署节点" : build-node/deploy-the-fullnode-or-supernode.md
+      - "主网数据库快照" : build-node/main-net-database-snapshots.md
+      - "波场私链" : build-node/tron-private-chain.md
+      - "事件订阅" :
+          - "事件订阅" : build-node/event-subscription/index.md
+          - "事件插件部署（MongoDB）" : build-node/event-subscription/event-plugin-deployment-mongodb.md
+          - "事件插件部署（Kafka）" : build-node/event-subscription/event-plugin-deployment-kafka.md
+          - "内置消息队列订阅（ZeroMQ）" : build-node/event-subscription/use-java-trons-built-in-message-queue-for-event-subscription.md
+
 
 
 
@@ -80,7 +102,7 @@ theme:
     - navigation.instant.prefetch
     - navigation.instant.progress
     - navigation.tracking
-    - navigation.expand
+    # - navigation.expand
     - navigation.path
     # - navigation.prune
     - navigation.indexes
@@ -100,7 +122,7 @@ markdown_extensions:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
-      auto_title: true
+      # auto_title: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - admonition
